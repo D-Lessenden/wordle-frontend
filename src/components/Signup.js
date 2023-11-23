@@ -22,6 +22,7 @@ const Signup = () => {
       const responseData = await response.json();
       // const userId =responseData.data.attributes.id
       // console.log(responseData.data.attributes.id)
+      console.log(responseData)
 
       if (response.ok) {
         // Check if data is not undefined and has the expected structure

@@ -16,15 +16,15 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      const data = await response.json();
-      console.log(data)
+      const responseData = await response.json();
+      // console.log(responseData)
 
       if (response.ok) {
         // Handle successful login, e.g., redirect or update state
-        const userId = data.user.id;
-        // console.log(data)
-        // navigate(`/user/${userId}`);
-        navigate(`/user/${userId}`, { state: { user: data.user } });
+        // const userId = data.user.id;
+        const userId = responseData.data.attributes.id;
+        // console.log(userId)
+        navigate(`/user/${userId}`, { state: { user: responseData.data } });
         console.log('Login successful!');
       } else {
         // Handle unsuccessful login, e.g., display error message

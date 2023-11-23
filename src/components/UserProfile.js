@@ -5,6 +5,8 @@ const UserProfile = ({ logout, startNewGame }) => {
   const location = useLocation();
   const userData = location.state?.user;
   const navigate = useNavigate();
+  const gameHistory = userData.attributes.game_history
+  console.log(gameHistory)
 
   const handleLogout = async () => {
     try {
@@ -42,6 +44,9 @@ const UserProfile = ({ logout, startNewGame }) => {
 
       {/* Display game history */}
       <h3>Game History</h3>
+      {/* Access game history from userData */}
+      {/* <p>Games Played: {userData.game_history.attributes.games_played}</p> */}
+      {/* Add more content as needed */}
 
       {/* Add more content as needed */}
     </div>
