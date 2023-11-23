@@ -1,0 +1,13 @@
+// .eslintrc.json
+{
+    // "parser": "babel-eslint",
+    "extends": ["react-app", "plugin:jsx-a11y/recommended"],
+    "plugins": ["jsx-a11y"],
+    "rules": {
+      // ... other rules
+  
+      // Add the following rule to allow the use of password_confirmation
+      "no-undef": "off"
+    }
+  }
+  
