@@ -21,9 +21,7 @@ const Login = () => {
 
       if (response.ok) {
         // Handle successful login, e.g., redirect or update state
-        // const userId = data.user.id;
         const userId = responseData.data.attributes.id;
-        // console.log(userId)
         navigate(`/user/${userId}`, { state: { user: responseData.data } });
         console.log('Login successful!');
       } else {
