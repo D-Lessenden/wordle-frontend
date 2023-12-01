@@ -1,0 +1,46 @@
+/* Add appropriate styles for your components */
+.game-board {
+  /* Add any necessary styles for the game board container */
+}
+
+.game-row {
+  display: flex;
+}
+
+.game-cell {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  border: 1px solid #000; /* Add borders or styling as needed */
+  margin: 2px; /* Add margin or spacing as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* styles/styles.css */
+.qwerty-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 10px;
+}
+
+.keyboard-key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.keyboard-key.disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
