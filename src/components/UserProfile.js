@@ -39,14 +39,17 @@ const UserProfile = ({ logout, startNewGame }) => {
           'Content-Type': 'application/json',
         },
       });
-
+  
       if (response.ok) {
         // Handle successful new game initiation
         const gameData = await response.json();
-        console.log(gameData)
-        console.log(gameData.data.id)
-        navigate(`/users/${userData.id}/game/${gameData.data.id}`, { state: { game: gameData.data } });
-
+        const userGameData = {
+          user: userData,
+          game: gameData.data
+        };
+        
+        navigate(`/users/${userData.id}/game/${gameData.data.id}`, { state: userGameData });
+  
       } else {
         // Handle unsuccessful new game initiation
         console.error('Failed to start a new game');
