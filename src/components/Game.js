@@ -16,6 +16,16 @@ const Game = () => {
   const [gameState, setGameState] = useState(gameData.game);
   const [submitClicked, setSubmitClicked] = useState(false);
   const navigate = useNavigate();
+  const [disabledKeys, setDisabledKeys] = useState([]);
+  const [guessCounter, setGuessCounter] = useState(0);
+
+  useEffect(() => {
+    if (submitClicked && guessCounter === activeRow) {
+      // Identify the letters in the user's guess that are not in the target word
+      const incorrectGuesses = userGuesses[activeRow].filter((letter) => !gameData.attributes.target_word.includes(letter));
+      setDisabledKeys(incorrectGuesses);
+    }
+  }, [submitClicked, userGuesses, activeRow, gameData.attributes.target_word, guessCounter]);
 
   const handleInputChange = (rowIndex, cellIndex) => (event) => {
     if (rowIndex === activeRow) {
@@ -42,6 +52,7 @@ const Game = () => {
 
   const handleSubmit = async () => {
     setSubmitClicked(true);
+    setGuessCounter(guessCounter + 1)
     if (activeRow < 5) {
       setActiveRow(activeRow + 1);
     }
@@ -124,6 +135,7 @@ const Game = () => {
         targetWord={gameData.attributes.target_word}
         onKeyPress={handleKeyPress}
         submitClicked={submitClicked}
+        disabledKeys={disabledKeys}
       />
       <button onClick={handleSubmit}>Submit Guess</button>
     </div>
