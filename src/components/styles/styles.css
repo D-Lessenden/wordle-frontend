@@ -44,3 +44,34 @@
   cursor: not-allowed;
 }
 
+.keyboard-key.in-target-word {
+  background-color: yellow;
+}
+
+.keyboard-key.correct-position {
+  background-color: green;
+}
+
+
+.banner {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-options {
+  display: flex;
+  gap: 10px;
+}
+
+.banner-options a,
+.banner-options button {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
