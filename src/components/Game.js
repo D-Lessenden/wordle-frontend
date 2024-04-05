@@ -10,7 +10,7 @@ const Game = () => {
   const userId = location.state.user.id;
   const gameId = gameData.id;
   console.log(gameData.attributes.target_word)
-  console.log(gameData.attributes)
+  // console.log(gameData.attributes)
   const [userGuesses, setUserGuesses] = useState(Array.from({ length: 6 }, () => Array(5).fill('')));
   const [activeRow, setActiveRow] = useState(0);
   const [gameState, setGameState] = useState(gameData.game);
@@ -136,6 +136,8 @@ const Game = () => {
         onKeyPress={handleKeyPress}
         submitClicked={submitClicked}
         disabledKeys={disabledKeys}
+        activeRow={activeRow}
+        guessCounter={guessCounter}  // Pass guessCounter as a prop
       />
       <button onClick={handleSubmit}>Submit Guess</button>
     </div>
